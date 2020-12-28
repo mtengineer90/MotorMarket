@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MotorMarket.Models;
 
 namespace MotorMarket.AppDbContext
 {
@@ -12,5 +13,9 @@ namespace MotorMarket.AppDbContext
         {
 
         }
+
+        public DbSet<Main> Mains { get; set; }
+        public DbSet<Model> Models { get; set; }
+
     }
 }
