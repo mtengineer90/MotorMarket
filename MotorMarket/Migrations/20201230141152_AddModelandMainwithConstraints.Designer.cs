@@ -9,8 +9,8 @@ using MotorMarket.AppDbContext;
 namespace MotorMarket.Migrations
 {
     [DbContext(typeof(MgaleriDbContext))]
-    [Migration("20201228212504_AddModelandMaintoDb")]
-    partial class AddModelandMaintoDb
+    [Migration("20201230141152_AddModelandMainwithConstraints")]
+    partial class AddModelandMainwithConstraints
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,7 +28,9 @@ namespace MotorMarket.Migrations
                         .UseIdentityColumn();
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.HasKey("Id");
 
@@ -46,7 +48,9 @@ namespace MotorMarket.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
 
                     b.HasKey("Id");
 
