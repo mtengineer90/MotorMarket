@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MotorMarket.Models.Main>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<br /><br />
+
+      <div class="row">
+          <div class="col-6">
+              <h2 class="text-info">Motor Sayfası</h2>
+          </div>
+          <div class="col-6 text-right">
+              <a class="btn btn-info" asp-action="Oluştur">Oluştur</a>
+          </div>
+          <br />
+          <div class="col-12">
+              <table class="table-striped border" >
+                  <tr class="table-info">
+                      <th>
+                          @Html.DisplayNameFor(x => x.Name)
+                      </th>
+                      <th></th>
+                  </tr>
+                  @foreach (var item in Model)
+                  {
+                      <tr>
+                          <td>
+                              @Html.DisplayFor(x=>item.Name)
+                          </td>
+                          <td  class="text-right">Düzenle | Sil</td>
+                      </tr>
+                  }
+
+              </table>
+          </div>
+      </div>
+
