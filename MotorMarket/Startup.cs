@@ -53,6 +53,12 @@ namespace MotorMarket
 
             app.UseEndpoints(endpoints =>
             {
+
+                //endpoints.MapControllerRoute(
+                //    "ByYearMonth", "main/motors/{year:int:length(4)}/{month:int:range(1,12)}", 
+                //    new {controller="main", action="ByYearMonth"}
+                //    );
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
