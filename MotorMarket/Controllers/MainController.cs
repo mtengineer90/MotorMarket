@@ -20,22 +20,22 @@ namespace MotorMarket.Controllers
         {
             return View(_db.Mains.ToList());
         }
-
-        ////main/motors
-        //[Route("main")]
-        //[Route("main/motors")]
-        //public IActionResult Motors()
-        //{
-        //    Main main = new Main { Id = 1, Name = "Harley Davidson" };
-
-        //    return View(main);
-        //}
-
-        //[Route("main/motors/{year:int:length(4)}/{month:int:range(1,12)}")]
-        //public IActionResult ByYearMonth(int year, int month)
-        //{
-        //    return Content(year + ";" + month);
-        //}
+        //HTTP Get
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult CreaOte(Main main)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Add(main);
+                _db.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(main);
+        }
    
     }
 }
