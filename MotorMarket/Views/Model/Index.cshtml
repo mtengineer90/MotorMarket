@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MotorMarket.Models.Model>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<br />
+<br />
+
+<div class="row">
+    <div class="col-6">
+        <h2 class="text-info">Model</h2>
+    </div>
+    <div class="col-6 text-right">
+        <a class="btn btn-info" asp-action="Create"><i class="fas fa-motorcycle"></i> &nbsp; Model Oluştur</a>
+    </div>
+    <br />
+    <div class="col-12">
+        <table class="table table-striped border">
+            <tr class="table-info">
+                <th>
+                    @Html.DisplayNameFor(x => x.Main)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(x => x.Name)
+                </th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(x => item.Main.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(x => item.Name)
+            </td>
+            <td class="text-right">
+                <div class="text-right">
+                    <div class="btn-group" role="group">
+                        <a type="bottom" class="btn btn-primary" href="@Url.Action("Edit", new { @item.Id })"><i class="far fa-edit"></i></a>
+                        <form method="post" action="Delete">
+                            <button onclick="if (!confirm('Motorsiklet silinecek. Onaylıyor musunuz?')){ return false }" type="submit" class="btn btn-danger rounded-0" asp-action="Delete" asp-route-id="@item.Id"><i class="far fa-trash-alt"></i></button>
+
+                        </form>
+                    </div>
+                </div>
+            </td>
+        </tr>
+            }
+
+        </table>
+    </div>
+</div>
+

@@ -13,7 +13,7 @@
               <h2 class="text-info">Motor Sayfası</h2>
           </div>
           <div class="col-6 text-right">
-              <a class="btn btn-info" asp-action="Create">Oluştur</a>
+              <a class="btn btn-info" asp-action="Create"><i class="fas fa-motorcycle"></i> &nbsp; Oluştur</a>
           </div>
           <br />
           <div class="col-12">
@@ -33,10 +33,10 @@
                   <td class="text-right">
                       <div class="text-right">
                           <div class="btn-group" role="group">
-                              <a type="bottom" class="btn btn-primary" href="@Url.Action("Edit", new { @item.Id })">Düzenle</a>
+                              <a type="bottom" class="btn btn-primary" href="@Url.Action("Edit", new { @item.Id })"><i class="far fa-edit"></i></a>
                               @*<a type="bottom" class="btn btn-primary" href="@Url.Action("Delete", new { @item.Id })">Sil</a>*@
                               <form method="post" action="Delete">
-                                  <input onclick="if (!confirm('Motorsiklet silinecek. Onaylıyor musunuz?')){ return false }" type="submit" class="btn btn-danger rounded-0" asp-action="Delete" asp-route-id="@item.Id" value="Delete" />
+                                  <button onclick="if (!confirm('Motorsiklet silinecek. Onaylıyor musunuz?')){ return false }" type="submit" class="btn btn-danger rounded-0" asp-action="Delete" asp-route-id="@item.Id"><i class="far fa-trash-alt"></i></button>
 
                               </form>
                           </div>
