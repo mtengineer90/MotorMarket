@@ -26,7 +26,7 @@ namespace MotorMarket.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult CreaOte(Main main)
+        public IActionResult Create(Main main)
         {
             if (ModelState.IsValid)
             {
@@ -36,6 +36,18 @@ namespace MotorMarket.Controllers
             }
             return View(main);
         }
-   
+
+        public IActionResult Delete(int id)
+        {
+            var main = _db.Mains.Find(id);
+            if (main == null)
+            {
+                return NotFound();
+            }
+            _db.Mains.Remove(main);
+            _db.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
+
     }
 }

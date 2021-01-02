@@ -13,11 +13,11 @@
               <h2 class="text-info">Motor Sayfası</h2>
           </div>
           <div class="col-6 text-right">
-              <a class="btn btn-info" asp-action="create">Oluştur</a>
+              <a class="btn btn-info" asp-action="Create">Oluştur</a>
           </div>
           <br />
           <div class="col-12">
-              <table class="table-striped border" >
+              <table class="table table-striped border" >
                   <tr class="table-info">
                       <th>
                           @Html.DisplayNameFor(x => x.Name)
@@ -26,11 +26,16 @@
                   </tr>
                   @foreach (var item in Model)
                   {
-                      <tr>
-                          <td>
-                              @Html.DisplayFor(x=>item.Name)
+              <tr>
+                  <td>
+                      @Html.DisplayFor(x => item.Name)
+                  </td>
+                  <td class="text-right">
+                      <div class="text-right">
+                          <a type="bottom" class="btn btn-primary" href="@Url.Action("Edit", new { @item.Id })">Düzenle</a>
+                          <a type="bottom" class="btn btn-primary" href="@Url.Action("Delete", new { @item.Id })">Sil</a>
+                      </div>
                           </td>
-                          <td  class="text-right">Düzenle | Sil</td>
                       </tr>
                   }
 
