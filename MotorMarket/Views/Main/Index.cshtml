@@ -32,8 +32,14 @@
                   </td>
                   <td class="text-right">
                       <div class="text-right">
-                          <a type="bottom" class="btn btn-primary" href="@Url.Action("Edit", new { @item.Id })">Düzenle</a>
-                          <a type="bottom" class="btn btn-primary" href="@Url.Action("Delete", new { @item.Id })">Sil</a>
+                          <div class="btn-group" role="group">
+                              <a type="bottom" class="btn btn-primary" href="@Url.Action("Edit", new { @item.Id })">Düzenle</a>
+                              @*<a type="bottom" class="btn btn-primary" href="@Url.Action("Delete", new { @item.Id })">Sil</a>*@
+                              <form method="post" action="Delete">
+                                  <input onclick="if (!confirm('Motorsiklet silinecek. Onaylıyor musunuz?')){ return false }" type="submit" class="btn btn-danger rounded-0" asp-action="Delete" asp-route-id="@item.Id" value="Delete" />
+
+                              </form>
+                          </div>
                       </div>
                           </td>
                       </tr>

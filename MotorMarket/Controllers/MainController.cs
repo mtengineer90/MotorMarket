@@ -36,7 +36,8 @@ namespace MotorMarket.Controllers
             }
             return View(main);
         }
-
+        //Post Method
+        [HttpPost]
         public IActionResult Delete(int id)
         {
             var main = _db.Mains.Find(id);
