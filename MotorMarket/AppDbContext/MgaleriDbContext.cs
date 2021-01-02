@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +9,7 @@ using MotorMarket.Models;
 
 namespace MotorMarket.AppDbContext
 {
-    public class MgaleriDbContext:DbContext
+    public class MgaleriDbContext:IdentityDbContext<IdentityUser>
     {
         public MgaleriDbContext(DbContextOptions<MgaleriDbContext> options):base(options)
         {
