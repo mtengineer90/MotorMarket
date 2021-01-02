@@ -1,4 +1,5 @@
 ﻿@model MotorMarket.Models.ViewModels.ModelViewModel
+@using MotorMarket.Extensions
 @{
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -13,7 +14,7 @@
             <label asp-for="Mains"> </label>
         </div>
         <div class="col-4">
-            <select asp-for="Model.MainId" asp-items="Model.CSelectListItem(Model.Mains)" class="form-control"></select>
+            <select asp-for="Model.MainId" asp-items="Model.Mains.ToSelectListItem()" class="form-control"></select>
         </div>
     </div>
     <div class="form-group row">
