@@ -152,3 +152,4 @@ C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\MotorMarket.MvcA
 C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\Razor\Views\Main\Motors.cshtml.g.cs
 C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\Razor\Views\Main\Index.cshtml.g.cs
 C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\Razor\Views\Main\Create.cshtml.g.cs
+C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\Razor\Views\Main\Edit.cshtml.g.cs

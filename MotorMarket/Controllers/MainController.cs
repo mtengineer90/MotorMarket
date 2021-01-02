@@ -50,5 +50,27 @@ namespace MotorMarket.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        public IActionResult Edit(int id)
+        {
+            var main = _db.Mains.Find(id);
+            if (main == null)
+            {
+                return NotFound();
+            }
+            return View(main);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Main main)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Update(main);
+                _db.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(main);
+        }
+
     }
 }
