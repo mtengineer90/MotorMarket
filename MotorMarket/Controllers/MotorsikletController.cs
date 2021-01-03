@@ -12,6 +12,7 @@ using MotorMarket.Models.ViewModels;
 using System.IO;
 using Microsoft.Extensions.Hosting.Internal;
 using Microsoft.AspNetCore.Hosting;
+using cloudscribe.Pagination.Models;
 
 namespace MotorMarket.Controllers
 {
@@ -35,10 +36,32 @@ namespace MotorMarket.Controllers
             };
         }
 
-        public IActionResult Index()
+
+        public IActionResult Index(string sortOrder, int sayfaNo=1, int sayfaSize=2)
         {
-            var Motors = _db.Motorsiklets.Include(x => x.Main).Include(x => x.Model);
-            return View(Motors.ToList());
+            ViewBag.PriceSortParam = String.IsNullOrEmpty(sortOrder) ? "price_desc" : "";
+            int num = (sayfaSize * sayfaNo) - sayfaSize;
+            var Motors = from b in _db.Motorsiklets.Include(x => x.Main).Include(x => x.Model)
+                         select b;
+            switch (sortOrder)
+            {
+                case "price_desc":
+                    Motors = Motors.OrderByDescending(b => b.Fiyat);
+                    break;
+                default:
+                    Motors = Motors.OrderBy(b => b.Fiyat);
+                    break;
+            }
+                     Motors = Motors.Skip(num).Take(sayfaSize);
+            var result = new PagedResult<Motorsiklet>
+            {
+                Data = Motors.AsNoTracking().ToList(),
+                TotalItems = _db.Motorsiklets.Count(),
+                PageNumber = sayfaNo,
+                PageSize = sayfaSize,
+            };
+
+            return View(result);
         }
         //Get Metod
         public IActionResult Create()

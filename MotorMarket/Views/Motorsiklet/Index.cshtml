@@ -1,6 +1,8 @@
-﻿@model IEnumerable<MotorMarket.Models.Motorsiklet>
+﻿@model cloudscribe.Pagination.Models.PagedResult<Motorsiklet>
 @{
     ViewData["Title"] = "Index";
+    ViewData["Controller"] = "Motorsiklet";
+    ViewData["Action"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -22,10 +24,12 @@
             <tr class="table-info">
                 <th>Motorsiklet Resim</th>
                 <th>Motorsiklet Detay</th>
-                <th>Fiyat</th>
+                <th>
+                    <a asp-action="Index" asp-route-sortOrder="@ViewBag.PriceSortParam">Fiyat</a>
+                </th>
                 <th>Satıcı</th>
                 <th></th></tr>
-                @foreach (var item in Model)
+                @foreach (var item in Model.Data)
                 {
         <tr>
             <td><img src="@Html.DisplayFor(x=>item.ImagePath)" width="150px" height="100px" /></td>
@@ -55,6 +59,8 @@
         </tr>
                 }
         </table>
+        <partial name="_PaginationPartial" view-data="ViewData" model="Model" />
+
     </div>
 </div>
 

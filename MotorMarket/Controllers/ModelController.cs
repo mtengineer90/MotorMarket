@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MotorMarket.AppDbContext;
+using MotorMarket.Controllers.Resources;
 using MotorMarket.Helpers;
 using MotorMarket.Models;
 using MotorMarket.Models.ViewModels;
@@ -16,11 +18,13 @@ namespace MotorMarket.Controllers
     public class ModelController : Controller
     {
         private readonly MgaleriDbContext _db;
+        private readonly IMapper _mapper;
         [BindProperty]
         public ModelViewModel ModelVM { get; set; }
-        public ModelController(MgaleriDbContext db)
+        public ModelController(MgaleriDbContext db, IMapper mapper)
         {
             _db = db;
+            _mapper = mapper;
             ModelVM = new ModelViewModel()
             {
                 Mains = _db.Mains.ToList(),
@@ -86,6 +90,21 @@ namespace MotorMarket.Controllers
         {
             return _db.Models.ToList()
                 .Where(x => x.MainId == MainID);
+        }
+
+        [AllowAnonymous]
+        [HttpGet("api/models")]
+        public IEnumerable<ModelResources> Models()
+        {
+            var models = _db.Models.ToList();
+            return _mapper.Map<List<Model>, List<ModelResources>>(models);
+
+
+            //var modelResources = models.Select(x => new ModelResources
+            //{
+            //    Id = x.Id,
+            //    Name = x.Name,
+            //}).ToList();
         }
     }
 }

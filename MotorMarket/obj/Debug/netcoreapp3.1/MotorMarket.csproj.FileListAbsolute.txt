@@ -1,8 +1,5 @@
 C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\MotorMarket.AssemblyInfoInputs.cache
 C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\MotorMarket.AssemblyInfo.cs
-C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\MotorMarket.csproj.CoreCompileInputs.cache
-C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\MotorMarket.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\MotorMarket.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\MotorMarket.RazorAssemblyInfo.cache
 C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\MotorMarket.RazorAssemblyInfo.cs
 C:\Users\murat\source\repos\MotorMarket\bin\Debug\netcoreapp3.1\appsettings.Development.json
@@ -210,3 +207,11 @@ C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\MotorMarket.cspr
 C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\Razor\Views\Motorsiklet\Index.cshtml.g.cs
 C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\Razor\Views\Motorsiklet\Create.cshtml.g.cs
 C:\Users\murat\source\repos\MotorMarket\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\murat\source\repos\MotorMarket\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\murat\source\repos\MotorMarket\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\murat\source\repos\MotorMarket\bin\Debug\netcoreapp3.1\cloudscribe.Pagination.Models.dll
+C:\Users\murat\source\repos\MotorMarket\bin\Debug\netcoreapp3.1\cloudscribe.Web.Pagination.dll
+C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\MotorMarket.csproj.CoreCompileInputs.cache
+C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\MotorMarket.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\MotorMarket.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_PaginationPartial.cshtml.g.cs

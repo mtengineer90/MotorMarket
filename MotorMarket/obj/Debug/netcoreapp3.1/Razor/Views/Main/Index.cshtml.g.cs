@@ -27,7 +27,7 @@ using MotorMarket.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bc0c6ef6e7358db3a3d7e1775d054409a478799e", @"/Views/Main/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"231a78847118c74b427ed907ddd8f8cdcb9d38db", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"eb36082b2306b0d63fe8f37b053eb67272f6596b", @"/Views/_ViewImports.cshtml")]
     public class Views_Main_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<MotorMarket.Models.Main>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("btn btn-info"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);

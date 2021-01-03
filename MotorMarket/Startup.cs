@@ -11,6 +11,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MotorMarket.AppDbContext;
+using AutoMapper;
+using MotorMarket.MappingProfiles;
 
 namespace MotorMarket
 {
@@ -28,6 +30,7 @@ namespace MotorMarket
         {
             services.AddControllersWithViews();
             //services.AddRazorPages();
+            services.AddAutoMapper(typeof(MappingProfile));
             services.AddDbContext<MgaleriDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddIdentity<IdentityUser, IdentityRole>()
                 .AddDefaultUI()
@@ -44,7 +47,7 @@ namespace MotorMarket
 
             });
             services.AddRazorPages();
-
+            services.AddCloudscribePagination();
 
         }   
 
