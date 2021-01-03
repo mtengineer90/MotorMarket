@@ -7,7 +7,7 @@
 
 <script>
     $(document).ready(function () {
-        var MainDDL = $("#Make");
+        var MainDDL = $("#Main");
         var ModelDDL = $("#Model");
         ModelDDL.prop('disabled', true);
 
@@ -20,7 +20,7 @@
                 $.ajax({
                     url: "/api/models/" + $(this).val(),
                     method: "get",
-                    success: function () {
+                    success: function (data) {
                         ModelDDL.prop('disabled', false);
                         ModelDDL.empty();
                         ModelDDL.append($('<option/>', { value: '0', text: '-Model Seçiniz-' }));
