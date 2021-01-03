@@ -45,7 +45,7 @@ namespace MotorMarket.Areas.Identity.Pages.Account.Manage
         {
             [Required]
             [EmailAddress]
-            [Display(Name = "New email")]
+            [Display(Name = "Yeni email")]
             public string NewEmail { get; set; }
         }
 

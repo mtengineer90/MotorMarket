@@ -18,6 +18,7 @@ namespace MotorMarket.AppDbContext
 
         public DbSet<Main> Mains { get; set; }
         public DbSet<Model> Models { get; set; }
+        public DbSet<Motorsiklet> Motorsiklets { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
     }

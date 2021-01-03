@@ -38,7 +38,7 @@ namespace MotorMarket.Areas.Identity.Pages.Account
             [Display(Name = "Authenticator code")]
             public string TwoFactorCode { get; set; }
 
-            [Display(Name = "Remember this machine")]
+            [Display(Name = "Hatırla")]
             public bool RememberMachine { get; set; }
         }
 
