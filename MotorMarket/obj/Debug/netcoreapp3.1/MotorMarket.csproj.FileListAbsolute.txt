@@ -207,3 +207,5 @@ C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\MotorMarket.dll
 C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\MotorMarket.pdb
 C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\MotorMarket.genruntimeconfig.cache
 C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\MotorMarket.csprojAssemblyReference.cache
+C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\Razor\Views\Motorsiklet\Index.cshtml.g.cs
+C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\Razor\Views\Motorsiklet\Create.cshtml.g.cs

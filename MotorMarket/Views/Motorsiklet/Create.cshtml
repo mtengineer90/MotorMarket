@@ -1,0 +1,93 @@
+﻿@model MotorMarket.Models.ViewModels.MotorViewModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Motorsiklet Oluştur</h2>
+<form method="post" action="Create">
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="Mains"> </label>
+        </div>
+        <div class="col-4">
+            <select asp-for="Motorsiklet.MainID" asp-items="Model.Mains.ToSelectListItem()" class="form-control"></select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="Models"> </label>
+        </div>
+        <div class="col-4">
+            <select asp-for="Motorsiklet.ModelID" asp-items="Model.Models.ToSelectListItem()" class="form-control"></select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="Motorsiklet.Yil"> </label>
+        </div>
+        <div class="col-4">
+            <select asp-for="Motorsiklet.Yil" class="form-control"></select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="Motorsiklet.KM"> </label>
+        </div>
+        <div class="col-4">
+            <select asp-for="Motorsiklet.KM" class="form-control"></select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="Motorsiklet.Fiyat"> </label>
+        </div>
+        <div class="col-4">
+            <select asp-for="Motorsiklet.Fiyat" class="form-control"></select>
+        </div>
+        <div class="col-1">
+            <label asp-for="Motorsiklet.Para"> </label>
+        </div>
+        <div class="col-4">
+            <select asp-for="Motorsiklet.Para" asp-items="Model.Currencies.ToSelectListItem()" class="form-control"></select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="Motorsiklet.Ozellikler"> </label>
+        </div>
+        <div class="col-4">
+            <textarea asp-for="Motorsiklet.Ozellikler" class="form-control"></textarea>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="Motorsiklet.SaticiName"> </label>
+        </div>
+        <div class="col-4">
+            <select asp-for="Motorsiklet.SaticiName" class="form-control"></select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="Motorsiklet.SaticiEmail"> </label>
+        </div>
+        <div class="col-4">
+            <select asp-for="Motorsiklet.SaticiEmail" class="form-control"></select>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-2">
+            <label asp-for="Motorsiklet.SaticiTelefon"> </label>
+        </div>
+        <div class="col-4">
+            <select asp-for="Motorsiklet.SaticiTelefon" class="form-control"></select>
+        </div>
+    </div>
+    <br />
+    <div class="form-group">
+        <input type="submit" class="btn btn-primary" value="Create" />
+        <a asp-action="Index" class="btn btn-success">Geri</a>
+    </div>
+</form>
+

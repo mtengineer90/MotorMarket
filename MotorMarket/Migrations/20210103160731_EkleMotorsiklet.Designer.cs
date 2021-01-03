@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MotorMarket.AppDbContext;
 
 namespace MotorMarket.Migrations
 {
     [DbContext(typeof(MgaleriDbContext))]
-    partial class MgaleriDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210103160731_EkleMotorsiklet")]
+    partial class EkleMotorsiklet
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
