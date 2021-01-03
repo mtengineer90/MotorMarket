@@ -84,7 +84,7 @@ namespace MotorMarket
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Motorsiklet}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
         }

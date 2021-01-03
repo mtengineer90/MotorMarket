@@ -63,6 +63,37 @@ namespace MotorMarket.Controllers
 
             return View(result);
         }
+        [HttpGet]
+        public IActionResult Edit(int id)
+        {
+            MotorVM.Motorsiklet = _db.Motorsiklets.SingleOrDefault(b => b.Id == id);
+
+            MotorVM.Models = _db.Models.Where(m => m.MainId == MotorVM.Motorsiklet.MainID);
+
+
+            if (MotorVM.Motorsiklet == null)
+            {
+                return NotFound();
+            }
+            return View(MotorVM);
+        }
+
+        [HttpPost, ActionName("Edit")]
+        public IActionResult EditPost()
+        {
+            if (!ModelState.IsValid)
+            {
+                MotorVM.Mains = _db.Mains.ToList();
+                MotorVM.Models = _db.Models.ToList();
+                return View(MotorVM);
+            }
+            _db.Motorsiklets.Update(MotorVM.Motorsiklet);
+            UploadImageIfAvailable();
+            _db.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+        }
+
         //Get Metod
         public IActionResult Create()
         {
@@ -79,7 +110,14 @@ namespace MotorMarket.Controllers
                 return View(MotorVM);
             }
             _db.Motorsiklets.Add(MotorVM.Motorsiklet);
+            UploadImageIfAvailable();   
             _db.SaveChanges();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        private void UploadImageIfAvailable()
+        {
 
             //Motorsiklet ID
             var MotorID = MotorVM.Motorsiklet.Id;
@@ -102,42 +140,18 @@ namespace MotorMarket.Controllers
                 var AbsImagePath = Path.Combine(wwrootPath, DigerImagePath);
 
                 //Upload Server
-                using (var fileStream=new FileStream(
-                   AbsImagePath, FileMode.Create ))
+                using (var fileStream = new FileStream(
+                   AbsImagePath, FileMode.Create))
                 {
                     dosyalar[0].CopyTo(fileStream);
                 }
 
                 //Image Path on DB
                 kayitliMotor.ImagePath = DigerImagePath;
-                _db.SaveChanges();
-
             }
-
-
-            return RedirectToAction(nameof(Index));
-        }
-        //        public IActionResult Edit(int id)
-        //        {
-        //            MotorVM.Model = _db.Models.Include(x => x.Main).SingleOrDefault(x => x.Id == id);
-        //            if (MotorVM.Model == null)
-        //            {
-        //                return NotFound();
-        //            }
-        //            return View(MotorVM);
-        //        }
-        //        [HttpPost, ActionName("Edit")]
-        //        public IActionResult EditPost()
-        //        {
-        //            if (!ModelState.IsValid)
-        //            {
-        //                return View(MotorVM);
-        //            }
-        //            _db.Update(MotorVM.Model);
-        //            _db.SaveChanges();
-        //            return RedirectToAction(nameof(Index));
-        //        }
-        [HttpPost]
+            }
+            
+            [HttpPost]
         public IActionResult Delete(int id)
         {
             Motorsiklet motorsiklet = _db.Motorsiklets.Find(id);

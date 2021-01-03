@@ -215,3 +215,4 @@ C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\MotorMarket.cspr
 C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\MotorMarket.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\MotorMarket.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_PaginationPartial.cshtml.g.cs
+C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\Razor\Views\Motorsiklet\Edit.cshtml.g.cs

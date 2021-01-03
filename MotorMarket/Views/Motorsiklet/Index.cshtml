@@ -1,4 +1,5 @@
 ﻿@model cloudscribe.Pagination.Models.PagedResult<Motorsiklet>
+@using MotorMarket.Helpers
 @{
     ViewData["Title"] = "Index";
     ViewData["Controller"] = "Motorsiklet";
@@ -15,9 +16,12 @@
     <div class="col-6">
         <h2 class="text-info">Motorsikletler</h2>
     </div>
-    <div class="col-6 text-right">
-        <a class="btn btn-info" asp-action="Create"><i class="fas fa-motorcycle"></i> &nbsp; Motorsiklet Ekle</a>
-    </div>
+
+        <div class="col-6 text-right">
+            <a class="btn btn-info" asp-action="Create"><i class="fas fa-motorcycle"></i> &nbsp; Motorsiklet Ekle</a>
+        </div>
+    
+
     <br />
     <div class="col-12">
         <table class="table table-striped border">
@@ -28,9 +32,10 @@
                     <a asp-action="Index" asp-route-sortOrder="@ViewBag.PriceSortParam">Fiyat</a>
                 </th>
                 <th>Satıcı</th>
-                <th></th></tr>
-                @foreach (var item in Model.Data)
-                {
+                <th></th>
+            </tr>
+            @foreach (var item in Model.Data)
+            {
         <tr>
             <td><img src="@Html.DisplayFor(x=>item.ImagePath)" width="150px" height="100px" /></td>
             <td>
@@ -44,20 +49,25 @@
                 <b>Email: </b>@Html.DisplayFor(x => item.SaticiEmail)<br />
                 <b>Telefon: </b>@Html.DisplayFor(x => item.SaticiTelefon)
             </td>
-            @*<partial name="_TableButonlarPartial" model="item.Id"/>*@
-            <td class="text-right">
-                <div class="text-right">
-                    <div class="btn-group" role="group">
-                        <a type="bottom" class="btn btn-primary" href="@Url.Action("Edit", new { @item.Id  })"><i class="far fa-edit"></i></a>
-                        <form method="post" action="Delete">
-                            <button onclick="if (!confirm('İlgili satır silinecek. Onaylıyor musunuz?')){ return false }" type="submit" class="btn btn-danger rounded-0" asp-action="Delete" asp-route-id="@item.Id"><i class="far fa-trash-alt"></i></button>
 
-                        </form>
+                <td class="text-right">
+                    <div class="text-right">
+                        <div class="btn-group" role="group">
+                            <a type="bottom" class="btn btn-primary" href="@Url.Action("Edit", new { @item.Id  })"><i class="far fa-edit"></i></a>
+                            <form method="post" action="Delete">
+                                <button onclick="if (!confirm('İlgili satır silinecek. Onaylıyor musunuz?')){ return false }" type="submit" class="btn btn-danger rounded-0" asp-action="Delete" asp-route-id="@item.Id"><i class="far fa-trash-alt"></i></button>
+
+                            </form>
+                        </div>
                     </div>
-                </div>
-            </td>
+                </td>
+            
+
+
+            @*<partial name="_TableButonlarPartial" model="item.Id"/>*@
+
         </tr>
-                }
+            }
         </table>
         <partial name="_PaginationPartial" view-data="ViewData" model="Model" />
 

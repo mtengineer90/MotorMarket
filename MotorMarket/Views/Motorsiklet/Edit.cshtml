@@ -1,15 +1,19 @@
 ﻿@model MotorMarket.Models.ViewModels.MotorViewModel
 @using MotorMarket.Extensions
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Motorsiklet Oluştur</h2>
-<form method="post" enctype="multipart/form-data" asp-action="Create">
+
+
+<h2>Motorsiklet Düzenle</h2>
+<form method="post" enctype="multipart/form-data" asp-action="Edit">
+    <input hidden asp-for="Motorsiklet.Id" />
+    <input hidden asp-for="Motorsiklet.ImagePath"/>
     <div class="form-group row">
         <div class="col-2">
-            <label asp-for="Mains">Marka</label>
+            <label asp-for="Mains"> </label>
         </div>
         <div class="col-4">
             <select asp-for="Motorsiklet.MainID" asp-items="Model.Mains.ToSelectListItem()" class="form-control" id="Main"></select>
@@ -20,7 +24,7 @@
             <label asp-for="Motorsiklet.ImagePath"> </label>
         </div>
         <div class="col-4">
-            <input type="file" name="files" class="form-control"/>
+            <input type="file" name="files" class="form-control" />
         </div>
     </div>
     <div class="form-group row">
@@ -113,7 +117,7 @@
     </div>
     <br />
     <div class="form-group">
-        <input type="submit" class="btn btn-primary" value="Create" />
+        <input type="submit" class="btn btn-primary" value="Update" />
         <a asp-action="Index" class="btn btn-success">Geri</a>
     </div>
 </form>
