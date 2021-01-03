@@ -10,23 +10,26 @@ namespace MotorMarket.Models
     {
         public int Id { get; set; }
         public Main Main { get; set; }
+
         public int MainID { get; set; }
         public Model Model { get; set; }
         public int ModelID { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Yıl Gerekli")]
+
         public int Yil { get; set; }
-        [Required]
+        [Required(ErrorMessage = "KM Gerekli")]
         public int KM { get; set; }
         public string Ozellikler { get; set; }
-        [Required]
+        [Required(ErrorMessage ="Satıcı Adı Gerekli")]
         public string SaticiName { get; set; }
+        [EmailAddress(ErrorMessage ="Geçerli Email Adresi Giriniz")]
         public string SaticiEmail { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Satıcı Telefon Numarası Gerekli")]
         public string SaticiTelefon { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Fiyat Gerekli")]
         public int Fiyat { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Para Birimi Gerekli")]
         public string Para { get; set; }
         public string ImagePath { get; set; }
 

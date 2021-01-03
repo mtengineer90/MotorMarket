@@ -80,5 +80,12 @@ namespace MotorMarket.Controllers
             _db.SaveChanges();
             return RedirectToAction(nameof(Index));
         }
+        [AllowAnonymous]
+        [HttpGet("api/models/{MainID}")]
+        public IEnumerable<Model> Models(int MainID)
+        {
+            return _db.Models.ToList()
+                .Where(x => x.MainId == MainID);
+        }
     }
 }

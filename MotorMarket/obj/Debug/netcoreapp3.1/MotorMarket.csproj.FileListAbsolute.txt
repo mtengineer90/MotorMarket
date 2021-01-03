@@ -209,3 +209,4 @@ C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\MotorMarket.genr
 C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\MotorMarket.csprojAssemblyReference.cache
 C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\Razor\Views\Motorsiklet\Index.cshtml.g.cs
 C:\Users\murat\source\repos\MotorMarket\obj\Debug\netcoreapp3.1\Razor\Views\Motorsiklet\Create.cshtml.g.cs
+C:\Users\murat\source\repos\MotorMarket\bin\Debug\netcoreapp3.1\libman.json

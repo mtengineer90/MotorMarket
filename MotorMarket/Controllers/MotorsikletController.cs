@@ -51,6 +51,8 @@ namespace MotorMarket.Controllers
         {
             if (!ModelState.IsValid)
             {
+                MotorVM.Mains = _db.Mains.ToList();
+                MotorVM.Models = _db.Models.ToList();
                 return View(MotorVM);
             }
             _db.Motorsiklets.Add(MotorVM.Motorsiklet);

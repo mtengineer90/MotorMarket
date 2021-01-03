@@ -5,6 +5,35 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script>
+    $(document).ready(function () {
+        var MainDDL = $("#Make");
+        var ModelDDL = $("#Model");
+        ModelDDL.prop('disabled', true);
+
+        MainDDL.change(function () {
+            if ($(this).val() == "0") {
+                ModelDDL.prop('disabled', true);
+                ModelDDL.val("0");
+            }
+            else {
+                $.ajax({
+                    url: "/api/models/" + $(this).val(),
+                    method: "get",
+                    success: function () {
+                        ModelDDL.prop('disabled', false);
+                        ModelDDL.empty();
+                        ModelDDL.append($('<option/>', { value: '0', text: '-Model Seçiniz-' }));
+                        $(data).each(function (index, item) {
+                            ModelDDL.append($('<option/>', { value: item.id, text: item.name }));
+                        });
+                    }
+                });
+            }
+        });
+    });
+</script>
+
 <h2>Motorsiklet Oluştur</h2>
 <form method="post" enctype="multipart/form-data"Create">
     <div class="form-group row">
@@ -12,7 +41,9 @@
             <label asp-for="Mains"> </label>
         </div>
         <div class="col-4">
-            <select asp-for="Motorsiklet.MainID" asp-items="Model.Mains.ToSelectListItem()" class="form-control"></select>
+            <select asp-for="Motorsiklet.MainID" asp-items="Model.Mains.ToSelectListItem()" class="form-control" id="Main"></select>
+            <span asp-validation-for="Motorsiklet.MainID" class="text-danger"></span>
+
         </div>
         <div class="col-auto">
             <label asp-for="Motorsiklet.ImagePath"> </label>
@@ -26,7 +57,9 @@
             <label asp-for="Models"> </label>
         </div>
         <div class="col-4">
-            <select asp-for="Motorsiklet.ModelID" asp-items="Model.Models.ToSelectListItem()" class="form-control"></select>
+            <select asp-for="Motorsiklet.ModelID" asp-items="Model.Models.ToSelectListItem()" class="form-control" id="Model"></select>
+            <span asp-validation-for="Motorsiklet.ModelID" class="text-danger"></span>
+
         </div>
     </div>
     <div class="form-group row">
@@ -35,6 +68,8 @@
         </div>
         <div class="col-4">
             <input asp-for="Motorsiklet.Yil" class="form-control"></input>
+            <span asp-validation-for="Motorsiklet.Yil" class="text-danger"></span>
+
         </div>
     </div>
     <div class="form-group row">
@@ -43,6 +78,8 @@
         </div>
         <div class="col-4">
             <input asp-for="Motorsiklet.KM" class="form-control"></input>
+            <span asp-validation-for="Motorsiklet.KM" class="text-danger"></span>
+
         </div>
     </div>
     <div class="form-group row">
@@ -51,12 +88,17 @@
         </div>
         <div class="col-4">
             <input asp-for="Motorsiklet.Fiyat" class="form-control"></input>
+            <span asp-validation-for="Motorsiklet.KM" class="text-danger"></span>
+
         </div>
         <div class="col-1">
             <label asp-for="Motorsiklet.Para"> </label>
+
         </div>
         <div class="col-4">
             <select asp-for="Motorsiklet.Para" asp-items="Model.Currencies.ToSelectListItem()" class="form-control"></select>
+            <span asp-validation-for="Motorsiklet.Para" class="text-danger"></span>
+
         </div>
     </div>
     <div class="form-group row">
@@ -65,6 +107,8 @@
         </div>
         <div class="col-4">
             <textarea asp-for="Motorsiklet.Ozellikler" class="form-control"></textarea>
+            <span asp-validation-for="Motorsiklet.Ozellikler" class="text-danger"></span>
+
         </div>
     </div>
     <div class="form-group row">
@@ -73,6 +117,8 @@
         </div>
         <div class="col-4">
             <input asp-for="Motorsiklet.SaticiName" class="form-control"></input>
+            <span asp-validation-for="Motorsiklet.SaticiName" class="text-danger"></span>
+
         </div>
     </div>
     <div class="form-group row">
@@ -81,6 +127,7 @@
         </div>
         <div class="col-4">
             <input asp-for="Motorsiklet.SaticiEmail" class="form-control"></input>
+            <span asp-validation-for="Motorsiklet.SaticiEmail" class="text-danger"></span>
         </div>
     </div>
     <div class="form-group row">
@@ -89,6 +136,8 @@
         </div>
         <div class="col-4">
             <input asp-for="Motorsiklet.SaticiTelefon" class="form-control"></input>
+            <span asp-validation-for="Motorsiklet.SaticiTelefon" class="text-danger"></span>
+
         </div>
     </div>
     <br />
