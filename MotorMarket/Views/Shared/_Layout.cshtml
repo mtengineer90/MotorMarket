@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using MotorMarket.Helpers
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -17,15 +18,22 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Menü
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" asp-controller="Marka" asp-action="Index">Marka</a>
-                            <a class="dropdown-item" asp-controller="Model">Model</a>
-                        </div>
+                    @if (User.IsInRole(Roller.Admin) || User.IsInRole(Roller.Executive))
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Menü
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" asp-controller="Main" asp-action="Index">Marka</a>
+                                <a class="dropdown-item" asp-controller="Model">Model</a>
+                                @if (User.IsInRole(Roller.Admin))
+                                {
+                                    <a class="dropdown-item" id="register" asp-area="Identity" asp-page="/Account/Register">Kullanıcı Ekle</a>
+                                }
+                            </div>
                     </li>
+                    }
                 </ul>
                 <partial name="_LoginPartial"/>
             </div>

@@ -29,8 +29,23 @@ namespace MotorMarket
             services.AddControllersWithViews();
             //services.AddRazorPages();
             services.AddDbContext<MgaleriDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
-            services.AddDefaultIdentity<IdentityUser>()
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddDefaultUI()
+                .AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<MgaleriDbContext>();
+            services.AddAuthorization(options =>
+            {
+
+                //options.AddPolicy("Admin",
+                //    authBuilder =>
+                //    {
+                //        authBuilder.RequireRole("Admin");
+                //    });
+
+            });
+            services.AddRazorPages();
+
+
         }   
 
 

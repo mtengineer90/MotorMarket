@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MotorMarket.AppDbContext;
+using MotorMarket.Helpers;
 using MotorMarket.Models;
 
 namespace MotorMarket.Controllers
 {
+    [Authorize(Roles = Roller.Admin + "," + Roller.Executive)]
     public class MainController : Controller
     {
         private readonly MgaleriDbContext _db;
